@@ -45,3 +45,4 @@ yarn-error.log*
 appsettings.json
 appsettings.*.json
 !appsettings.example.json
+.vercel
