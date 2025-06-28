@@ -25,6 +25,14 @@ export default async function handler(req, res) {
       });
     }
 
+    // Check for required environment variables
+    if (!process.env.TWILIO_ACCOUNT_SID || !process.env.TWILIO_AUTH_TOKEN) {
+      return res.status(500).json({
+        success: false,
+        message: 'Twilio credentials not configured'
+      });
+    }
+
     // Initialize Twilio
     const client = twilio(
       process.env.TWILIO_ACCOUNT_SID,
